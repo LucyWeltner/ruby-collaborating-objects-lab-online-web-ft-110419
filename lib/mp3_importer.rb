@@ -5,13 +5,13 @@ class MP3Importer
     @path = file_path
   end
   def files 
-    @files = Dir.entries(@path).select {|f| !File.directory? f}
-    @files = @files.select{|file1| file1.to_s[-4..-1] == ".mp3"}
-    @files = @files.flatten
+    @data = Dir.entries(@path).select {|f| !File.directory? f}
+    @data = @data.select{|file1| file1.to_s[-4..-1] == ".mp3"}
+    @data.flatten!
   end
   def import
     files
-    @files.each do |song|
+    @data.each do |song|
       Song.new_by_filename(song)
     end
   end
