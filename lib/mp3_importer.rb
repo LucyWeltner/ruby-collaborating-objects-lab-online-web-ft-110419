@@ -10,6 +10,7 @@ class MP3Importer
     @files = @files.flatten
   end
   def import 
+    p @files
     @files.each do |song|
       Song.new_by_filename(song)
     end
