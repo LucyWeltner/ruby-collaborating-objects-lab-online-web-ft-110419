@@ -8,6 +8,7 @@ class MP3Importer
     @data = Dir.entries(@path).select {|f| !File.directory? f}
     @data = @data.select{|file1| file1.to_s[-4..-1] == ".mp3"}
     @data.flatten!
+    @data
   end
   def import
     files
