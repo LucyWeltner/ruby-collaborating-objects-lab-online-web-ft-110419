@@ -9,8 +9,7 @@ class MP3Importer
     @files = @files.select{|file1| file1.to_s[-4..-1] == ".mp3"}
     @files = @files.flatten
   end
-  def import 
-    p @files
+  def import
     @files.each do |song|
       Song.new_by_filename(song)
     end
